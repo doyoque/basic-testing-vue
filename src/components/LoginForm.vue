@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <form @submit.prevent="onSubmit">
-      <input type="text" v-model="name" />
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+  <form @submit.prevent="onSubmit">
+    <input type="text" v-model="name" />
+    <button type="submit">Submit</button>
+  </form>
 </template>
 
 <script>
