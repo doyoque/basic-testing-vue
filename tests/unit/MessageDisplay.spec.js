@@ -4,6 +4,9 @@ import { getMessage } from '@/services/axios'
 import { flushPromises } from 'flush-promises'
 
 jest.mock('@/services/axios')
+beforeEach(() => {
+  jest.clearAllMocks()
+})
 
 describe('MessageDisplay', () => {
   it('Calls getMessage and display message', async () => {
