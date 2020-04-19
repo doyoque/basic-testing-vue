@@ -17,7 +17,11 @@ describe('MessageDisplay', () => {
     await flushPromises()
 
     // check that call happened once
+    expect(getMessage).toHaveBeenCalledTimes(1) // check that call happened once
+
     // check that component displays message
+    const message = wrapper.find('[data-testid="message"]').element.textContent
+    expect(message).toEqual(mockMessage)
   })
 
   it('Displays an error when getMessage call fails', async () => {
