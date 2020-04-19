@@ -1,14 +1,21 @@
 import MessageDisplay from '@/components/MessageDisplay'
 import { mount } from '@vue/test-utils'
 import { getMessage } from '@/services/axios'
+import { flushPromises } from 'flush-promises'
 
 jest.mock('@/services/axios')
 
 describe('MessageDisplay', () => {
   it('Calls getMessage and display message', async () => {
     // mock the API call
+    const mockMessage = 'Hello from the db'
+    getMessage.mockResolvedValueOnce({ text: mockMessage }) // calling mocked get request
+
     const wrapper = mount(MessageDisplay)
+
     // wait for promise to resolve
+    await flushPromises()
+
     // check that call happened once
     // check that component displays message
   })
